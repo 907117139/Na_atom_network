@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钠原子光谱固定项</title>
+    <style>
+        body
+        { background-color:#fff;}
+        table
+        {
+        position:relative;
+        border:1px solid;
+        left:33%;
+        top:150px;
+         }
+        td
+        {border: 1px solid;
+         text-align:center;
+        }
+        h
+        {
+        position:relative;
+        left:40%;
+        top:100px;
+        font-size:30px;
+        }
+    </style>
+</head>
+<body>
+
+
+{% for message in get_flashed_messages() %}
+<div>{{ message }}</div>
+{% endfor %}
+
+<h>钠原子光谱波数差及固定项计算</h>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <table>
+        <tr>
+            <td><img src="{{ url_for('static', filename='resource/picture/lambda1.png') }}"></td>
+            <td>{{ form.lambda2() }}</td>
+            <td><img src="{{ url_for('static', filename='resource/picture/wave_number1.png') }}" ></td>
+            <td>{{ wave_number1 }}</td>
+            <td>能级1：</td>
+            <td>{{ energy_level1 }}</td>
+        </tr>
+
+        <tr>
+        <td><img src="{{ url_for('static', filename='resource/picture/lambda2.png') }}"> </td>
+        <td>{{ form.lambda1() }}</td>
+        <td><img src="{{ url_for('static', filename='resource/picture/wave_number2.png') }}" ></td>
+        <td>{{ wave_number2 }}</td>
+        <td>能级1：</td>
+        <td>{{ energy_level2 }}</td>
+        </tr>
+
+        <tr>
+        <td><img src="{{ url_for('static', filename='resource/picture/fixed_term.png') }}"></td>
+        <td>{{ fixed_term }}</td>
+        <td><img src="{{ url_for('static', filename='resource/picture/delta_v.png') }}"></td>
+        <td>{{ delta }}</td>
+        </tr>
+
+        <tr>
+        <td><img src="{{ url_for('static', filename='resource/picture/n.png') }}" ></td>
+        <td>{{ n }}</td>
+        <td colspan="4"><img src="{{ url_for('static', filename='resource/picture/formula.png') }}" ></td>
+        </tr>
+
+        <tr>
+        <td><img src="{{ url_for('static', filename='resource/picture/delta_l.png') }}" ></td>
+        <td>{{ delta_l }}</td>
+        </tr>
+
+        <tr>
+        <td>{{ form.submit() }}</td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
